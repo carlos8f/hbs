@@ -1,54 +1,23 @@
-# Status #
-
-This project is **frozen** because I am no longer using `Handlebars` as primary template
-engine.
-
-## Alternates ##
-
-*If you are interested in supporting this project, please message me the link to your
-fork or rewrite to be added below.*
-
-*[TBD]*
-
-===
-
 # hbs #
 
-[Express.js](http://github.com/visionmedia/express) view engine wrapper for
-[handlebars.js](http://github.com/wycats/handlebars.js), an extension of
-[Mustache](http://mustache.github.com/) template language.
+The [original hbs](https://github.com/donpark/hbs) intended to provide support
+for using [handlebars.js](http://github.com/wycats/handlebars.js) as an
+Express.js view engine. However, it seems that handlebars.js supports this
+natively!
 
-## Why ##
-
-While Handlbars.js is already a Node.js module, it cannot be used directly as
-an Express.js view engine. This module will fill that role until Handlebars.js
-adds Express.js view engine support directly.
-	
-## Installation ##
-
-	npm install hbs
+The new purpose is to provide a nice middleware for jit-precompiling handlebar
+templates into javascript, for use on the client side.
 
 ## Usage ##
 
-To set *hbs* as default view engine:
-	
+To set `hbs` as default view engine:
+
     app.set("view engine", "hbs");
-    
-## Examples ##
 
-See `test/server` source code.
+To use the jit-precompiler:
 
-## Issues ##
-
-`__get__` function is not supported within block helper functions.
-
-## Migrating to 1.0.0 ##
-
-* Version number bumped to 1.0.0 to match `Handlebars` version.
-* `Handlebars` is now loaded using `require` and is longer embedded.
-* `hbs.handlebarsPath` was removed
-* `registerHelper` and `registerPartial` methods are exported.
-
-## Migrating from 0.0.3 from 0.0.2 ##
-
-Handlebars' block-helpers now needs to be in `blockHelpers` (see example above) instead of `locals`.
+    app.use(require('hbs').middleware(
+      src: "assets", // Source template path
+      dest: "public", // Destination for compiled .js code
+      ext: ".hbs" // Change if you use a non-standard template extension
+    ));
