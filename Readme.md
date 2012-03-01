@@ -10,6 +10,9 @@ templates into javascript, for use on the client side.
 
 ## Usage ##
 
+`hbs` inherits all of handlebars' methods, so you can use it just as you would
+use handlebars.
+
 To set `hbs` as default view engine:
 
     app.set("view engine", "hbs");

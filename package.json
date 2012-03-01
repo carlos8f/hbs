@@ -1,9 +1,9 @@
 {
   "name": "hbs",
-  "description": "Express.js template engine plugin for Handlebars",
-  "version": "1.0.1",
-  "homepage": "https://github.com/donpark/hbs",
-  "author": "Don Park <donpark@docuverse.com> (http://blog.docuverse.com)",
+  "description": "Express.js middleware for handlebars templates",
+  "version": "1.1.0",
+  "homepage": "https://github.com/carlos8f/hbs",
+  "author": "Carlos Rodriguez <carlos@s8f.org> (http://s8f.org/)",
   "main": "lib/hbs.js",
   "directories": {
     "lib":"./lib"
