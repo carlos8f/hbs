@@ -22,5 +22,6 @@ To use the jit-precompiler:
     app.use(require('hbs').middleware(
       src: "assets", // Source template path
       dest: "public", // Destination for compiled .js code
-      ext: ".hbs" // Change if you use a non-standard template extension
+      ext: ".hbs", // Change if you use a non-standard template extension
+      useDefine: false // True will wrap files in require.js-style define() calls.
     ));
